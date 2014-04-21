@@ -183,4 +183,7 @@ public class Coord implements IConvCoord<Integer> {
 	public boolean equalsY(Coord coord) {
 		return (y == coord.getY());
 	}
+	
+	
+	
 }

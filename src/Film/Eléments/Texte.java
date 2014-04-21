@@ -56,7 +56,13 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 	}
 	
 	
-	
+	 /**
+     * Déplace le texte à la coordonée passé en paramètre
+     * Le point de repère est le premiere caractère du Texte
+     * 
+     * @param coord				la coordonnée
+     * @since   1.0
+     */
 	@Override
 	public void déplacer(Coord coord) {
 		Coord deltaCoord = coord.moins(caractères.get(0).getCoord());
@@ -67,15 +73,38 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 		
 	}
 
+	 /**
+     * Modifie un caractère dont les coordonnée sont passé en paramètre
+     * 
+     * @param c					le nouveau caractère
+     * @param coord				la coordonnée
+	 * @since   1.0
+     */
 	@Override
 	public void modifier(char c, Coord coord) {
-		// TODO Auto-generated method stub
+		try {
+			Caractère.caractèrePrésent(caractères, coord).modifier(c);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
+	 /**
+     * Supprime un caractère dont les coordonnée sont passé en paramètre
+     * 
+     * @param coord				la coordonnée
+	 * @since   1.0
+     */
 	@Override
 	public void supprimer(Coord coord) {
-		// TODO Auto-generated method stub
+		try {
+			caractères.remove(Caractère.indexOf(caractères, coord));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

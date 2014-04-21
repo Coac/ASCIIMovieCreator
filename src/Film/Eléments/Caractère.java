@@ -1,5 +1,8 @@
 package Film.Eléments;
 
+import java.util.AbstractList;
+import java.util.Iterator;
+
 import Film.Eléments.Coordonnées.Coord;
 
 /**
@@ -88,6 +91,41 @@ public class Caractère extends Elément implements ISimple<Coord> {
     @Override
     public void déplacer(Coord coord) {
         this.coord = coord;
+    }
+    
+    
+    /**
+    *
+    * Renvoie l'indice du caractère dont sa coordonnée correspond
+    * à celle passée en paramètre 
+    *
+    * @param caractères		la liste de caractères
+    * @param coord			la coordonnée
+    * @since   1.0
+    */
+    static public int indexOf(AbstractList<Caractère> caractères, Coord coord) throws Exception {
+		for (int i = 0; i < caractères.size(); i++) {
+			if(caractères.get(i).getCoord().equals(coord))
+				return i;
+		}
+    	
+    	throw new Exception("Le caractère dont la coordonnée n'est pas présent dans la Liste");
+    	
+    }
+    
+    /**
+    *
+    * Renvoie le caractère dont sa coordonnée correspond
+    * à celle passée en paramètre 
+    *
+    * @param caractères		la liste de caractères
+    * @param coord			la coordonnée
+    * @throws Exception 
+    * @since   1.0
+    */
+    static public Caractère caractèrePrésent(AbstractList<Caractère> caractères, Coord coord) throws Exception {
+		return caractères.get(indexOf(caractères,coord));
+    	
     }
     
 }
