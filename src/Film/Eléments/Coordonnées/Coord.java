@@ -151,5 +151,36 @@ public class Coord implements IConvCoord<Integer> {
 		return new Coord(x+coord.getX(), y+coord.getY());
 	}
 	   
-
+    /**
+     * Test si deux Coord sont égaux
+     * 
+     * @param coord     La Coord à comparer
+     * @return 		    true si égal, sinon false
+     * @since           1.0
+     */
+	public boolean equals(Coord coord) {
+		return (x == coord.getX() && y == coord.getY());
+	}
+	
+    /**
+     * Test si l'abcisse des deux Coord sont égaux
+     * 
+     * @param coord     La Coord à comparer
+     * @return 		    true si égal, sinon false
+     * @since           1.0
+     */
+	public boolean equalsX(Coord coord) {
+		return (x == coord.getX());
+	}
+	
+    /**
+     * Test si l'ordonnée des deux Coord sont égaux
+     * 
+     * @param coord     La Coord à comparer
+     * @return 		    true si égal, sinon false
+     * @since           1.0
+     */
+	public boolean equalsY(Coord coord) {
+		return (y == coord.getY());
+	}
 }
