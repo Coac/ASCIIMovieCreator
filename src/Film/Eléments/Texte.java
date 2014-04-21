@@ -59,7 +59,11 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 	
 	@Override
 	public void déplacer(Coord coord) {
-		// TODO Auto-generated method stub
+		Coord deltaCoord = coord.moins(caractères.get(0).getCoord());
+		
+		for(Caractère caractère : caractères) {
+			caractère.déplacer(caractère.getCoord().plus(deltaCoord));
+		}
 		
 	}
 

@@ -127,6 +127,29 @@ public class Coord implements IConvCoord<Integer> {
     	y = rotationReturn(angle, centre).getY();
     	
     }
+    
+    /**
+     * Soustraction des coordonnées par une autre
+     * 
+     * @param coord     opérande de droite de la soustraction
+     * @return 		    le résultat de la soustraction
+     * @since           1.0
+     */
+    public Coord moins(Coord coord) {
+    	return new Coord(x-coord.getX(), y-coord.getY());
+    	
+    }
+
+    /**
+     * Addition des coordonnées par une autre
+     * 
+     * @param coord     opérande de droite de la soustraction
+     * @return 		    le résultat de la soustraction
+     * @since           1.0
+     */
+	public Coord plus(Coord coord) {
+		return new Coord(x+coord.getX(), y+coord.getY());
+	}
 	   
 
 }
