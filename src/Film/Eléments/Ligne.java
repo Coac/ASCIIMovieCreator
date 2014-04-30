@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Film.Eléments.Coordonnées.Coord;
 
 public class Ligne extends Elément{
-	private ArrayList<Caractère> caractères;
+	private ArrayList<Caractère> caractères = new ArrayList<Caractère>();
 	
 	/**
      * Crée une Ligne à partir d'un char et de deux points de coordonnées
@@ -81,5 +81,16 @@ public class Ligne extends Elément{
 		assert(c2.getX()-c1.getX() != 0);
 		return (c2.getX()*c1.getY() - c1.getX()*c2.getY())/(c2.getX()-c1.getX());
 		
+	}
+	
+	
+	
+	public Caractère get(int i) {
+		assert(i < caractères.size());
+		return caractères.get(i);
+	}
+	
+	public int size() {
+		return caractères.size();
 	}
 }
