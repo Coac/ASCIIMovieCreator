@@ -1,7 +1,6 @@
 package Film.Eléments;
 
 import java.util.AbstractList;
-import java.util.Iterator;
 
 import Film.Eléments.Coordonnées.Coord;
 
