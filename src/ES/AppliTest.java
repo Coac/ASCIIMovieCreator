@@ -16,7 +16,7 @@ public class AppliTest {
 		PrintWriter printWriter = new PrintWriter ("C:/Users/Coac/Desktop/test.txt");
 	    
 	    // Initialisation du tab qui va accueillir les caractères
-	    char tab[][] = new char[20][20];
+	    char tab[][] = new char[30][30];
 	    for (int i = 0; i < tab.length; i++)
 	    	for (int j = 0; j < tab[i].length; j++)
 	    		tab[i][j] = ' ';
@@ -24,7 +24,7 @@ public class AppliTest {
 	    
 	    
 	    // On lui rentre les caractères
-	    Ligne ligne = new Ligne('a',new Coord(0,5)	, new Coord(10,10));
+	    Ligne ligne = new Ligne('a',new Coord(0,0)	, new Coord(3,29));
 	    for (int i = 0; i < ligne.size(); i++) {
 			tab[ligne.get(i).getCoord().getX()][ligne.get(i).getCoord().getY()] = ligne.get(i).getCaractère();
 		}
@@ -35,6 +35,7 @@ public class AppliTest {
 	    for (int i = 0; i < tab.length; i++) {
 	    	for (int j = 0; j < tab[i].length; j++) {
 	    		s += tab[i][j];
+	    		s += " ";
 	    	}
 	    printWriter.println(s);
 	    s = "";

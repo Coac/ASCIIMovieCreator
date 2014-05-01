@@ -113,6 +113,17 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Caractère get(int i) {
+		assert(i<caractères.size());
+		return caractères.get(i);
+	}
+
+	@Override
+	public int size() {
+		return caractères.size();
+	}
 	
 
 }

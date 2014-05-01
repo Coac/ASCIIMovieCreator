@@ -126,5 +126,15 @@ public class Caractère extends Elément implements ISimple<Coord> {
 		return caractères.get(indexOf(caractères,coord));
     	
     }
+
+	@Override
+	public Caractère get(int i) {
+		return this;
+	}
+
+	@Override
+	public int size() {
+		return 1;
+	}
     
 }
