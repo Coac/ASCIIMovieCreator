@@ -1,6 +1,5 @@
 package Film.Eléments;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import Film.Eléments.Coordonnées.Coord;
