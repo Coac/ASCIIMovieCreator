@@ -16,9 +16,9 @@ public class AppliTest {
 		Ligne ligne = new Ligne('a',new Coord(0,0)	, new Coord(3,29));
 		ES es = new ES("C:/Users/Coac/Desktop/test.txt");
 		Image image = new Image(50,50);
-		Texte texte = new Texte("aaaaaa", 3);
+		Texte texte = new Texte("123456789", 2);
 		image.add(texte);
-		//image.add(ligne);
+		image.add(ligne);
 		es.écrire(image);
 	}
 

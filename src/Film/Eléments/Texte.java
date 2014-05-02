@@ -36,7 +36,7 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 		hauteur = string.length() / largeur;
 		
 		for (int i = 0; i < string.length(); i++) {
-			caractères.add(new Caractère(string.charAt(i), new Coord( i%largeur,i/(hauteur-1) )));
+			caractères.add(new Caractère(string.charAt(i), new Coord( i%largeur,i/largeur )));
 		} 
 			
 	}
