@@ -116,8 +116,9 @@ public class Image {
 	    }
 	    
 	    String s = new String("");
-	    for (int i = 0; i < tab.length; i++) {
-	    	for (int j = 0; j < tab[i].length; j++) {
+	    for (int j = 0; j < tab[0].length; j++) {
+	    	for (int i = 0; i < tab.length; i++) {
+	    	
 	    		s+=tab[i][j];
 	    	}
 	    	s += "\n";
