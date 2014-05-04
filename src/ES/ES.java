@@ -69,10 +69,16 @@ public class ES {
     * @since   1.0
     */
 	public void écrire(Film film) throws FileNotFoundException {
-
+		assert(film.get(0) != null);
+		PrintWriter out;
+		out = new PrintWriter(chemin);
+		out.println(film.get(0).getX() + " " + film.get(0).getY());
 		for (int i = 0; i < film.size(); i++) {
-			écrire(film.get(i));
+			out.println(film.get(i).toString());
+			out.println("\\newframe");
 		}
+		
+		out.close();
 
 	}
 

@@ -43,8 +43,43 @@ public class Image {
 		this.y = y;
 	}
 	
-	
     /**
+    * Construit une Image à partir d'une autre
+    *
+    * @param image			l'image a copiée
+    * @since   1.0
+    */
+    public Image(Image image) {
+		this.x = image.x;
+		this.y = image.y;
+		for (int i = 0; i < image.size(); i++) {
+			éléments.add(i, image.get(i));
+		}
+	}
+
+    
+	/**
+     * Retourne l'élément de profondeur i
+     *
+     * @param	la profondeur
+     * @return	l'élément
+     * @since   1.0
+     */
+    public Elément get(int i) {
+		return éléments.get(i);
+	}
+
+	/**
+    * Retourne le nombre d'éléments dans l'image
+    *
+    * @return	le nombre d'élément
+    * @since   1.0
+    */
+	public int size() {
+		return éléments.size();
+	}
+
+	/**
     * Retourne la largeur de l'image
     *
     * @return			la largeur
@@ -88,6 +123,8 @@ public class Image {
 	public void add(Elément élément) {
 		éléments.add(élément);
 	}
+	
+	
 	
 	
     /**

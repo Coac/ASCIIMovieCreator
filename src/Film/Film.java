@@ -45,5 +45,30 @@ public class Film {
 		assert(i>=0 && i< images.size());
 		return images.get(i);
 	}
+	
+    /**
+    * Ajoute une image au film
+    * positionnée à la fin
+    *
+    * @param image			l'image
+    * @since   1.0
+    */
+	public void add(Image image) {
+		assert(image != null);
+		images.add(image);
+	}
+	
+    /**
+    * Ajoute une image au film
+    * positionnée à la position indiquée par le paramètre
+    *
+    * @param image			l'image
+    * @param position		la position
+    * @since   1.0
+    */
+	public void add(Image image, int position) {
+		assert(image != null && position >0 && position < images.size());
+		images.add(position, image);
+	}
 
 }

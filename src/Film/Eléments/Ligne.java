@@ -296,6 +296,8 @@ public class Ligne extends Elément implements ISimple<Coord>, IComplexe<Caract�
     			}
     		}
     	}
+    	
+    	caractères.add(new Caractère(c,new Coord(arrivé.getX(), arrivé.getY())));
 
     }
         
