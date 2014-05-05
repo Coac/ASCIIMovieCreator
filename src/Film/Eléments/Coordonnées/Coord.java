@@ -82,8 +82,8 @@ public class Coord implements IConvCoord<Integer> {
      * @since           1.0
      */
     public Coord rotationReturn(double angle, Coord centre) {
-         return new Coord((int)Math.round(Math.cos(angle)*(this.x - centre.getX()) - Math.sin(angle)*(this.y - centre.getY())), 
-        				 (int)Math.round(Math.sin(angle)*(this.x - centre.getX()) + Math.cos(angle)*(this.y - centre.getY())) );
+         return new Coord((int)Math.round(Math.cos(angle)*(this.x - centre.getX()) - Math.sin(angle)*(this.y - centre.getY()) + centre.getX()), 
+        				 (int)Math.round(Math.sin(angle)*(this.x - centre.getX()) + Math.cos(angle)*(this.y - centre.getY()) + centre.getY()) );
         
         
     }
