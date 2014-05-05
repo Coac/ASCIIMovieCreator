@@ -136,5 +136,9 @@ public class Caractère extends Elément implements ISimple<Coord> {
 	public int size() {
 		return 1;
 	}
+	
+	
+
+	
     
 }

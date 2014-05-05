@@ -1,5 +1,7 @@
 package Film.Eléments;
 
+import Film.Eléments.Coordonnées.Coord;
+
 /**
  * La classe élément est le supertype à la base de tous les éléments utilisables
  * de l'application.
@@ -33,5 +35,50 @@ public abstract class Elément {
      * @since   1.0
      */
 	public abstract int size();
+	
+	
+	
+	/**
+     * Dessine un cadre qui encadre tous les
+     * caractères qui composent l'élément
+     * 
+     * @param c		le caractère utilisé pour encadrer
+     * @since   1.0
+     */
+	//public abstract void encadrer(char c);
+	
+	
+    /**
+     * Réalise une rotation d'angle "angle" et de centre "centre" sur la Ligne
+     * 
+     * 
+     * @param angle     valeur de l'angle de rotation en radian
+     * @param centre    centre de rotation
+     * @since           1.0
+     */
+    public void rotation(double angle, Coord centre) {
+    	for (int i = 0; i < size(); i++) {
+    		int temp = get(i).getCoord().rotationReturn(angle, centre).getX(); 
+	    	get(i).getCoord().setY(get(i).getCoord().rotationReturn(angle, centre).getY()); 
+	    	get(i).getCoord().setX(temp);
+    	}
+    	
+    }
+    
+    /**
+     * Réalise une rotation d'angle "angle" et de centre "centre" sur la Ligne
+     * 
+     * 
+     * @param angle     valeur de l'angle de rotation en degré
+     * @param centre    centre de rotation
+     * @since           1.0
+     */
+    public void rotation(int angle, Coord centre) {
+    	for (int i = 0; i < size(); i++) {
+    		get(i).getCoord().setX(get(i).getCoord().rotationReturn(angle, centre).getX()); 
+    		get(i).getCoord().setY(get(i).getCoord().rotationReturn(angle, centre).getY()); 
+    	}
+    	
+    }
 	
 }

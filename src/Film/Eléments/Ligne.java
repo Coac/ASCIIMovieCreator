@@ -434,4 +434,8 @@ public class Ligne extends Elément implements ISimple<Coord>, IComplexe<Caract�
 	public int size() {
 		return caractères.size();
 	}
+	
+
+	
+	
 }

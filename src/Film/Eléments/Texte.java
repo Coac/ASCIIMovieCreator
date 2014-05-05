@@ -126,4 +126,7 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 	}
 	
 
+	
+	
+
 }

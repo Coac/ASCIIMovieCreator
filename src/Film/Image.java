@@ -147,7 +147,8 @@ public class Image {
 	    // On rentre chaque éléments dans le tableau de char
 	    for(Elément élément: éléments) {
 	    	for (int i = 0; i < élément.size(); i++) {
-	    		if(x >= élément.get(i).getCoord().getX() && y >= élément.get(i).getCoord().getY())
+	    		if(x >= élément.get(i).getCoord().getX() && y >= élément.get(i).getCoord().getY()
+	    				&& élément.get(i).getCoord().getX() >= 0 && élément.get(i).getCoord().getY() >=0 )
 				tab[élément.get(i).getCoord().getX()][élément.get(i).getCoord().getY()] = élément.get(i).getCaractère();
 			}
 	    }
