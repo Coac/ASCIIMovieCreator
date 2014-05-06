@@ -38,16 +38,6 @@ public abstract class Elément {
 	
 	
 	
-	/**
-     * Dessine un cadre qui encadre tous les
-     * caractères qui composent l'élément
-     * 
-     * @param c		le caractère utilisé pour encadrer
-     * @since   1.0
-     */
-	//public abstract void encadrer(char c);
-	
-	
     /**
      * Réalise une rotation d'angle "angle" et de centre "centre" sur la Ligne
      * 
@@ -58,9 +48,7 @@ public abstract class Elément {
      */
     public void rotation(double angle, Coord centre) {
     	for (int i = 0; i < size(); i++) {
-    		int temp = get(i).getCoord().rotationReturn(angle, centre).getX(); 
-	    	get(i).getCoord().setY(get(i).getCoord().rotationReturn(angle, centre).getY()); 
-	    	get(i).getCoord().setX(temp);
+	    	get(i).setCoord(get(i).getCoord().rotationReturn(angle, centre));
     	}
     	
     }
@@ -73,11 +61,14 @@ public abstract class Elément {
      * @param centre    centre de rotation
      * @since           1.0
      */
-    public void rotation(int angle, Coord centre) {
+    public void rotationD(double angle, Coord centre) {
     	for (int i = 0; i < size(); i++) {
-    		get(i).getCoord().setX(get(i).getCoord().rotationReturn(angle, centre).getX()); 
-    		get(i).getCoord().setY(get(i).getCoord().rotationReturn(angle, centre).getY()); 
+	    	get(i).setCoord(get(i).getCoord().rotationReturnD(angle, centre));
     	}
+    	
+    	
+    	
+    	
     	
     }
 	

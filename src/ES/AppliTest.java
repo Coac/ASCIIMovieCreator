@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 import Film.Film;
 import Film.Image;
+import Film.Eléments.Cadre;
 import Film.Eléments.Caractère;
 import Film.Eléments.Ligne;
 import Film.Eléments.Texte;
@@ -19,16 +20,18 @@ public class AppliTest {
 		Film film = new Film();
 		
 		
-		for (double i = 0.1; i < 6.29; i+=0.1) {
-			Texte texte = new Texte("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 40);
+		for (double i = 0; i < 361; i+=1) {
+			Texte texte = new Texte("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO", 40);
 			Caractère c = new Caractère('c',new Coord(20,20));
 			double degré = i;
-			texte.rotation(degré, new Coord(20,20));
+			texte.rotationD(degré, new Coord(20,20));
+			Cadre cadre = new Cadre('-',texte);
 			Image image = new Image(50,50);
 			image.add(texte);
+			image.add(cadre);
 			image.add(c);
 			film.add(image);
-
+			
 		}
 
 		

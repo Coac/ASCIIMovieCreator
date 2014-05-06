@@ -70,6 +70,15 @@ public class Caractère extends Elément implements ISimple<Coord> {
 		return coord;
 	}
 	
+    /**
+     * 
+     * @param  nouvelles coordonnées
+     * @since   1.0
+     */
+	public void setCoord(Coord coord) {
+		this.coord = coord;
+	}
+	
 	
 	/**
     *

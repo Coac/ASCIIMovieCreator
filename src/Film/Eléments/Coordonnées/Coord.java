@@ -98,38 +98,10 @@ public class Coord implements IConvCoord<Integer> {
      * @return          la nouvelle coordonnées après rotation
      * @since           1.0
      */
-    public Coord rotationReturn(int angle, Coord centre) {
-        return rotationReturn((double)(Math.toRadians(angle)), centre);
+    public Coord rotationReturnD(double angle, Coord centre) {
+        return rotationReturn(Math.toRadians(angle), centre);
     }
     
-    /**
-     * Réalise une rotation d'angle "angle" et de centre "centre" sur la coordonée
-     * 
-     * 
-     * @param angle     valeur de l'angle de rotation en radian
-     * @param centre    centre de rotation
-     * @since           1.0
-     */
-    public void rotation(double angle, Coord centre) {
-    	int xTemp = rotationReturn(angle, centre).getX();
-    	y = rotationReturn(angle, centre).getY();
-    	x = xTemp;
-
-    }
-    
-    /**
-     * Réalise une rotation d'angle "angle" et de centre "centre" sur la coordonée
-     * 
-     * 
-     * @param angle     valeur de l'angle de rotation en degré
-     * @param centre    centre de rotation
-     * @since           1.0
-     */
-    public void rotation(int angle, Coord centre) {
-    	x = rotationReturn(angle, centre).getX();
-    	y = rotationReturn(angle, centre).getY();
-    	
-    }
     
     /**
      * Soustraction des coordonnées par une autre
