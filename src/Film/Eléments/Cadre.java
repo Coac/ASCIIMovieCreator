@@ -22,6 +22,31 @@ public class Cadre extends Elément {
 	
 	private ArrayList<Caractère> caractères = new ArrayList<Caractère>();
 	
+	/**
+     * Créer un Cadre à partir de deux coordonnées
+     * 
+     * @param coord1		1ere Coordonnées
+     * @param coord2		2e Coordonnées
+     * @param c				le caractère utilisé pour dessiner le cadre
+     * @since   1.0
+     */
+	public void cadre(char c, Coord coord1, Coord coord2) {
+		caractères.clear();
+		Image image = new Image(1,1);
+		image.add(new Ligne(c,new Coord(coord1.getX(), coord1.getY()), new Coord(coord1.getX(), coord2.getY())));
+		image.add(new Ligne(c,new Coord(coord1.getX(), coord1.getY()), new Coord(coord2.getX(), coord1.getY())));
+		image.add(new Ligne(c,new Coord(coord2.getX(), coord2.getY()), new Coord(coord2.getX(), coord1.getY())));
+		image.add(new Ligne(c,new Coord(coord2.getX(), coord2.getY()), new Coord(coord1.getX(), coord2.getY())));
+
+		for (int i = 0; i < image.size(); i++) {
+			for (int j = 0; j < image.get(i).size(); j++) {
+				caractères.add(image.get(i).get(j));
+			}
+		}
+		
+	}
+	
+	
     /**
      * Créer un Cadre à partir d'un élément.
      * L'élément va être encadrer par ce premier
@@ -56,17 +81,7 @@ public class Cadre extends Elément {
 		maxX += 1;
 		maxY += 1;
 		
-		Image image = new Image(1,1);
-		image.add(new Ligne(c,new Coord(minX, minY), new Coord(minX, maxY)));
-		image.add(new Ligne(c,new Coord(minX, minY), new Coord(maxX, minY)));
-		image.add(new Ligne(c,new Coord(maxX, maxY), new Coord(maxX, minY)));
-		image.add(new Ligne(c,new Coord(maxX, maxY), new Coord(minX, maxY)));
-		
-		for (int i = 0; i < image.size(); i++) {
-			for (int j = 0; j < image.get(i).size(); j++) {
-				caractères.add(image.get(i).get(j));
-			}
-		}
+		cadre(c, new Coord(minX, minY), new Coord(maxX,maxY));
 		
 	}
 

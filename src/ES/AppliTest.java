@@ -26,7 +26,7 @@ public class AppliTest {
 			double degré = i;
 			texte.rotationD(degré, new Coord(20,20));
 			Cadre cadre = new Cadre('-',texte);
-			Image image = new Image(50,50);
+			Image image = new Image(60,60);
 			image.add(texte);
 			image.add(cadre);
 			image.add(c);
