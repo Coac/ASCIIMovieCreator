@@ -20,7 +20,7 @@ import Film.Eléments.Coordonnées.Coord;
  * @since   1.0
  **/
 
-public class Caractère extends Elément implements ISimple<Coord> {
+public class Caractère extends Elément {
 
     private char caractère;
     private Coord coord;
@@ -85,7 +85,6 @@ public class Caractère extends Elément implements ISimple<Coord> {
     * @param c			nouvelle valeur du caractère
     * @since   1.0
     */
-	@Override
     public void modifier(char c) {
         caractère = c;
     }

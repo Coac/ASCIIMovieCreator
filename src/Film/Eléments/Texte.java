@@ -17,7 +17,7 @@ import Film.Eléments.Coordonnées.Coord;
  * @since   1.0
  **/
 
-public class Texte extends Elément implements IComplexe<Caractère,Coord> {
+public class Texte extends Elément {
 	
 	private ArrayList<Caractère> caractères = new ArrayList<Caractère>();
 	private int largeur;
@@ -48,7 +48,6 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
      * @param c				le caractère
      * @since   1.0
      */
-	@Override
 	public void modifier(char c) {
 		for(Caractère caractère : caractères) {
 			caractère.modifier(c);
@@ -56,22 +55,7 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 	}
 	
 	
-	 /**
-     * Déplace le texte à la coordonée passé en paramètre
-     * Le point de repère est le premiere caractère du Texte
-     * 
-     * @param coord				la coordonnée
-     * @since   1.0
-     */
-	@Override
-	public void déplacer(Coord coord) {
-		Coord deltaCoord = coord.moins(caractères.get(0).getCoord());
-		
-		for(Caractère caractère : caractères) {
-			caractère.déplacer(caractère.getCoord().plus(deltaCoord));
-		}
-		
-	}
+
 
 	 /**
      * Modifie un caractère dont les coordonnée sont passé en paramètre
@@ -80,7 +64,6 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
      * @param coord				la coordonnée
 	 * @since   1.0
      */
-	@Override
 	public void modifier(char c, Coord coord) {
 		try {
 			Caractère.caractèrePrésent(caractères, coord).modifier(c);
@@ -97,7 +80,6 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
      * @param coord				la coordonnée
 	 * @since   1.0
      */
-	@Override
 	public void supprimer(Coord coord) {
 		try {
 			caractères.remove(Caractère.indexOf(caractères, coord));
@@ -108,7 +90,6 @@ public class Texte extends Elément implements IComplexe<Caractère,Coord> {
 		
 	}
 
-	@Override
 	public Caractère convSimple(Coord coord) {
 		// TODO Auto-generated method stub
 		return null;

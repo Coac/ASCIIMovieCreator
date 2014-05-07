@@ -62,14 +62,58 @@ public abstract class Elément {
      * @since           1.0
      */
     public void rotationD(double angle, Coord centre) {
-    	for (int i = 0; i < size(); i++) {
+    	for (int i = 0; i < size(); i++) 
 	    	get(i).setCoord(get(i).getCoord().rotationReturnD(angle, centre));
-    	}
-    	
-    	
-    	
-    	
-    	
     }
+    	
+    	
+    	
+	 /**
+     * Déplace l'élément à la coordonée passé en paramètre
+     * Le point de repère est le premiere caractère de l'élément
+     * 
+     * @param coord				la coordonnée
+     * @since   1.0
+     */
+	public void déplacer(Coord coord) {
+		Coord deltaCoord = coord.moins(get(0).getCoord());
+		for (int i = 0; i < size(); i++)
+			get(i).déplacer(get(i).getCoord().plus(deltaCoord));
+
+	}
+	
+    /**
+     * Modifier permet de changer la valeur des caractères contenus
+     *  dans un élément  
+     * 
+     * @param c 		nouveau caractère de l'élément
+     * @since   1.0
+     */
+    void modifier(char c) {
+    	for (int i = 0; i < size(); i++)
+    		get(i).modifier(c);
+    }
+    
+    
+    
+    /**
+     * Modifie le Caractère contenu dans à la position coord
+     * S'il n'ya rien à cette position, la méthode ne fait rien
+     * 
+     * @param c 		nouveau char du Caractère
+     * @pram coord		les coordonnées du Caractère
+     * @since   1.0
+     */
+    public void modifier(char c, Coord coord) {
+    	for (int i = 0; i < size(); i++){
+            if (get(i).getCoord() == coord)
+                get(i).modifier(c);
+        }
+    }
+    	
+    	
+    	
+    	
+    	
 	
 }

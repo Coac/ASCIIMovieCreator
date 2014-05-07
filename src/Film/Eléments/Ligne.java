@@ -26,7 +26,7 @@ import Film.Eléments.Coordonnées.Coord;
  * @see     Coord
  * @since   1.0
  **/
-public class Ligne extends Elément implements ISimple<Coord>, IComplexe<Caractère, Coord>, IRedimensionner2côtés{
+public class Ligne extends Elément implements IRedimensionner2côtés{
 	
 	
 	//private ArrayList<Caractère> caractères = new ArrayList<Caractère>();
@@ -301,17 +301,6 @@ public class Ligne extends Elément implements ISimple<Coord>, IComplexe<Caract�
 
     }
         
-        
-    @Override
-    public void modifier(char c) {
-        for (Caractère caractère : caractères)
-            caractère.modifier(c);
-    }
-
-    @Override
-    public void déplacer(Coord coord) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public boolean estCoordDeLigne(Coord coord){
 		for (Caractère caractère : caractères) {
@@ -322,23 +311,6 @@ public class Ligne extends Elément implements ISimple<Coord>, IComplexe<Caract�
         
     }
     
-    @Override
-    public void modifier(char c, Coord coord) {
-        for (Caractère caractère : caractères){
-            if (caractère.getCoord() == coord)
-                caractère.modifier(c);
-        }
-    }
-
-    @Override
-    public void supprimer(Coord coord) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Caractère convSimple(Coord coord) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void redimensionner(int début, int fin) {
