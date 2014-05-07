@@ -54,46 +54,6 @@ public class Texte extends Elément {
 		}
 	}
 	
-	
-
-
-	 /**
-     * Modifie un caractère dont les coordonnée sont passé en paramètre
-     * 
-     * @param c					le nouveau caractère
-     * @param coord				la coordonnée
-	 * @since   1.0
-     */
-	public void modifier(char c, Coord coord) {
-		try {
-			Caractère.caractèrePrésent(caractères, coord).modifier(c);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
-	 /**
-     * Supprime un caractère dont les coordonnée sont passé en paramètre
-     * 
-     * @param coord				la coordonnée
-	 * @since   1.0
-     */
-	public void supprimer(Coord coord) {
-		try {
-			caractères.remove(Caractère.indexOf(caractères, coord));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-
-	public Caractère convSimple(Coord coord) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Caractère get(int i) {
