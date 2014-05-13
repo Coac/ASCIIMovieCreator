@@ -30,8 +30,15 @@ public class Coord implements IConvCoord<Integer> {
         this.x = x;
         this.y = y;
     }
+    
+    
+    
+    public Coord(Coord c1) {
+		this.x = c1.x;
+		this.y = c1.y;
+	}
 
-    /**
+	/**
      * 
      * @return  coordonnée de l'objet en abscisse
      * @since   1.0
@@ -157,6 +164,55 @@ public class Coord implements IConvCoord<Integer> {
      */
 	public boolean equalsY(Coord coord) {
 		return (y == coord.getY());
+	}
+	
+	
+	
+    /**
+     * Test si la coordonnée est dans le cadre
+     * défini par les coord début et fin
+     * 
+     * @param départ    La Coord de départ
+     * @param fin     	La Coord de fin
+     * @return 		    true si oui, sinon false
+     * @since           1.0
+     */
+	public boolean estDans(Coord début, Coord fin) {
+		if(x >= début.getX() && x <= fin.getX() && y >= début.getY() && y <= fin.getY())
+			return true;
+		return false;
+	}
+	
+	
+    /**
+     * Echange les valeurs des deux Coord
+     * c1 aura la valeur de c2
+     * c2 aura la valeur de c1
+     * 
+     * @param c1    	La Coord c1
+     * @param c2     	La Coord c2
+     * @return 		    true si oui, sinon false
+     * @since           1.0
+     */
+	static public void échange(Coord c1, Coord c2) {
+		Coord temp = new Coord(c1);
+		c1 = c2;
+		c2 = temp;
+	}
+	
+	
+	
+	
+	/**
+     * Retourne une chaine de caractère qui 
+     * correspond au Coord
+     * 
+     * @return 		    la chaine de caractère
+     * @since           1.0
+     */
+	@Override
+	public String toString() {
+		return new String("["+ x +", " + y +"]");
 	}
 	
 	

@@ -30,13 +30,30 @@ public class Extrait extends Elément{
 	
 	@Override
 	public Caractère get(int i) {
-		// TODO Auto-generated method stub
+		int j = -1;
+		for (int j2 = 0; j2 < texte.size(); j2++) {
+			  if(texte.get(j2).getCoord().moins(texte.get(0).getCoord()).estDans(début, fin)) {
+				  j++;
+				  if(j == i)
+					  return texte.get(j2);
+			  }	
+		}
+		
 		return null;
 	}
 
+	
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		int j = 0;
+		for (int i = 0; i < texte.size(); i++)
+			  if(texte.get(i).getCoord().moins(texte.get(0).getCoord()).estDans(début, fin))
+				  ++j;
+
+		return j;
 	}
+
+	
+	
+	
 }
