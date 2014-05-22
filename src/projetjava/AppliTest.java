@@ -3,10 +3,10 @@ package projetjava;
 import java.io.FileNotFoundException;
 
 import ES.ES;
-import Film.Caractère;
 import Film.Film;
 import Film.Image;
 import Eléments.Cadre;
+import Eléments.Caractère;
 import Eléments.Extrait;
 import Eléments.Ligne;
 import Eléments.Texte;
@@ -22,19 +22,21 @@ public class AppliTest {
 		Film film = new Film();
 		
 		
+		Texte texte = new Texte("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO", 4);
+		Caractère c = new Caractère('c',new Coord(20,20));
+		Cadre cadre = new Cadre('-',texte);
 		Image image = new Image(60,60);
-        Ligne ligne = new Ligne('l', new Coord(1,1), new Coord(5,5));
+                Ligne ligne = new Ligne('l', new Coord(10,1), new Coord(18,7));
 		
+		texte.déplacer(new Coord(5,5));
+		Extrait extrait = new Extrait(texte, new Coord(0,0), new Coord(4,4));
+		image.add(extrait);
                 image.add(ligne);
-                ligne.get(3).modifier('o');
-		Ligne lign2 = new Ligne(ligne);
-		Image image2 = new Image(image);
-		
-		
-		lign2.allonger(5, 5);
-		
-		image2.add(lign2);
-		
+                Image image2 = image.clone();
+                extrait.déplacer(new Coord(20,20));
+		ligne.redimensionner(0, 5);
+                //image.add(cadre);
+		//image.add(c);
 		film.add(image);
                 film.add(image2);
                 
