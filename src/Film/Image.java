@@ -2,7 +2,9 @@ package Film;
 
 import java.util.LinkedList;
 
-import Film.Eléments.Elément;
+import Eléments.Elément;
+import java.util.Iterator;
+import java.util.Objects;
 
 
 
@@ -22,7 +24,7 @@ import Film.Eléments.Elément;
  * @version 1.0
  * @since   1.0
  **/
-public class Image {
+public class Image implements Cloneable {
 	
 	private LinkedList<Elément> éléments = new LinkedList<Elément>();
 	
@@ -38,7 +40,7 @@ public class Image {
     * @since   1.0
     */
 	public Image(int x, int y) {
-		assert(x >0 && y >0);
+		assert(x > 0 && y > 0);
 		this.x = x;
 		this.y = y;
 	}
@@ -53,7 +55,7 @@ public class Image {
 		this.x = image.x;
 		this.y = image.y;
 		for (int i = 0; i < image.size(); i++) {
-			éléments.add(i, image.get(i));
+			éléments.add(i, image.get(i).clone());
 		}
 	}
 
@@ -124,8 +126,15 @@ public class Image {
 		éléments.add(élément);
 	}
 	
-	
-	
+    /** Supprime un élément dans l'image 
+*/
+        public void supprimer(int indice) {
+            éléments.remove(indice);
+        }
+        
+        public void supprimer(Elément élément) {
+            éléments.remove(élément);
+        }
 	
     /**
     * Renvoie un String qui correspond à
@@ -165,6 +174,44 @@ public class Image {
 	    return s;
 		
 	}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.éléments);
+        hash = 37 * hash + this.x;
+        hash = 37 * hash + this.y;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Image other = (Image) obj;
+        if (!Objects.equals(this.éléments, other.éléments)) {
+            return false;
+        }
+        if (this.x != other.x) {
+            return false;
+        }
+        if (this.y != other.y) {
+            return false;
+        }
+        return true;
+    }
+        
+        
+        
+        @Override
+        public Image clone() {
+            return new Image(this);
+        }
+        
 	
 	
 
