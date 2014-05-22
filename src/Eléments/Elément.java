@@ -1,6 +1,7 @@
 package Eléments;
 
 import Coordonnées.Coord;
+import Film.IElément;
 
 /**
  * La classe élément est le supertype à la base de tous les éléments utilisables
@@ -13,7 +14,7 @@ import Coordonnées.Coord;
  * @version 1.0
  * @since   1.0
  */
-public abstract class Elément implements IElément<Caractère>, Cloneable {
+public abstract class Elément implements IElément, Cloneable {
     
 
     /**
@@ -98,6 +99,7 @@ public abstract class Elément implements IElément<Caractère>, Cloneable {
      */
     @Override
     public abstract Elément clone();
+
     	
 	
 }

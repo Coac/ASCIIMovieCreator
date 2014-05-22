@@ -1,9 +1,6 @@
 package Film;
 
 import java.util.LinkedList;
-
-import Eléments.Elément;
-import java.util.Iterator;
 import java.util.Objects;
 
 
@@ -20,13 +17,13 @@ import java.util.Objects;
  * 
  * @author  Le Victor
  * @author  Luttgens Pascal
- * @see Elément
+ * @see IElément
  * @version 1.0
  * @since   1.0
  **/
 public class Image implements Cloneable {
 	
-	private LinkedList<Elément> éléments = new LinkedList<Elément>();
+	private LinkedList<IElément> éléments = new LinkedList<IElément>();
 	
 	private int x;
 	private int y;
@@ -67,7 +64,7 @@ public class Image implements Cloneable {
      * @return	l'élément
      * @since   1.0
      */
-    public Elément get(int i) {
+    public IElément get(int i) {
 		return éléments.get(i);
 	}
 
@@ -110,7 +107,7 @@ public class Image implements Cloneable {
     * @param profondeur			la profondeur
     * @since   1.0
     */
-	public void add(Elément élément, int profondeur) {
+	public void add(IElément élément, int profondeur) {
 		assert(profondeur > 0 && profondeur < éléments.size());
 		éléments.add(profondeur,élément);
 	}
@@ -122,7 +119,7 @@ public class Image implements Cloneable {
     * @param élément			l'élément
     * @since   1.0
     */
-	public void add(Elément élément) {
+	public void add(IElément élément) {
 		éléments.add(élément);
 	}
 	
@@ -132,7 +129,7 @@ public class Image implements Cloneable {
             éléments.remove(indice);
         }
         
-        public void supprimer(Elément élément) {
+        public void supprimer(IElément élément) {
             éléments.remove(élément);
         }
 	
@@ -154,7 +151,7 @@ public class Image implements Cloneable {
 	    		tab[i][j] = ' ';
 		
 	    // On rentre chaque éléments dans le tableau de char
-	    for(Elément élément: éléments) {
+	    for(IElément élément: éléments) {
 	    	for (int i = 0; i < élément.size(); i++) {
 	    		if(x >= élément.get(i).getCoord().getX() && y >= élément.get(i).getCoord().getY()
 	    				&& élément.get(i).getCoord().getX() >= 0 && élément.get(i).getCoord().getY() >=0 )

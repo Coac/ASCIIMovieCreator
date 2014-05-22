@@ -1,8 +1,11 @@
-package Film.Eléments;
+package Film;
 
 import java.util.AbstractList;
 
-import Film.Eléments.Coordonnées.Coord;
+import Coordonnées.Coord;
+import Eléments.Elément;
+
+import java.util.Objects;
 
 /**
  * Le caractère est l'élément simple de l'application, c'est le plus petit
@@ -15,7 +18,6 @@ import Film.Eléments.Coordonnées.Coord;
  * @author  Luttgens Pascal
  * @version 1.0
  * @see     Elément
- * @see     ISimple
  * @see     Coord
  * @since   1.0
  **/
@@ -69,19 +71,12 @@ public class Caractère extends Elément {
 	public Coord getCoord() {
 		return coord;
 	}
+		
 	
     /**
-     * 
-     * @param  nouvelles coordonnées
-     * @since   1.0
-     */
-	public void setCoord(Coord coord) {
-		this.coord = coord;
-	}
-	
-	
-	/**
     *
+    * Change la valeur du caractère
+    * 
     * @param c			nouvelle valeur du caractère
     * @since   1.0
     */
@@ -90,8 +85,10 @@ public class Caractère extends Elément {
     }
 	
 	
-	/**
+    /**
     *
+    * Change les coordonnées du caractère
+    * 
     * @param coord		nouvelles coordonnées du caractère
     * @since   1.0
     */
@@ -144,6 +141,38 @@ public class Caractère extends Elément {
 	public int size() {
 		return 1;
 	}
+
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + this.caractère;
+        hash = 53 * hash + Objects.hashCode(this.coord);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Caractère other = (Caractère) obj;
+        if (this.caractère != other.caractère) {
+            return false;
+        }
+        if (!Objects.equals(this.coord, other.coord)) {
+            return false;
+        }
+        return true;
+    }
+        
+    @Override
+    public Caractère clone() {
+        return new Caractère(this);
+    }
 	
 	
 

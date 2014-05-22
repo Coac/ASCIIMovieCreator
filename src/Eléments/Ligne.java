@@ -3,6 +3,8 @@ package Eléments;
 import java.util.LinkedList;
 
 import Coordonnées.Coord;
+import Film.Caractère;
+
 import java.util.Objects;
 
 
@@ -25,10 +27,6 @@ import java.util.Objects;
  * @since   1.0
  **/
 public class Ligne extends Elément {
-	
-	
-	//private ArrayList<Caractère> caractères = new ArrayList<Caractère>();
-	
 	/**
      * Crée une Ligne à partir d'un char et de deux points de coordonnées
      * c1 et c2.
@@ -39,41 +37,7 @@ public class Ligne extends Elément {
      * 
      * @since   1.0
      */
-	/*public Ligne(char caractère, Coord c1, Coord c2) {
-		assert(c1.equals(c2)); // Vaut mieux utiliser un Caractère dans ce cas là
-		
-		// On veut que c1 soit le plus petit en abcsisse
-		if(c1.getX() > c2.getX()) {
-			Coord temp = c1;
-			c1 = c2;
-			c2 = temp;
-		}
-		
-		// -------  Si les même abcisses, ligne verticale ---------
-		if(c1.getX() == c2.getX()) {
-			if(c1.getY() > c2.getY()) {
-				Coord temp = c1;
-				c1 = c2;
-				c2 = temp;
-			}
-			
-			for(int y=c1.getY(); y<=c2.getY(); ++y) {
-				caractères.add(new Caractère(caractère, new Coord(c1.getX(), y)));
-			}
-		}
-		else { // -------- Sinon ----------------------------------
-			
-			double a = coeffDir(c1, c2);
-			double b = ordAOrigine(c1, c2);
-			
-			for(int x=c1.getX(); x<=c2.getX(); ++x) {
-				caractères.add(new Caractère(caractère, new Coord(x,(int) Math.round(a*x+b))));
-			}
-		}
-			
-	}
-*/
-	// ------------------------------------------------------------------------------------
+
 	
     private LinkedList<Caractère> caractères = new LinkedList<Caractère>();
     
@@ -323,34 +287,60 @@ public class Ligne extends Elément {
     
 
     public void redimensionner(int début, int fin) {
-            if (début)    
-                
+           
     }
     
-    private void allonger(Ligne ligne, int début, int fin) {
-            int distance = (int) Math.sqrt((caractères.getFirst().getCoord().getX() - caractères.getLast().getCoord().getX())^2 +
-                                       (caractères.getFirst().getCoord().getY() - caractères.getLast().getCoord().getY())^2);
-            Coord cf = new Coord(caractères.getFirst().getCoord().getX() + (caractères.getFirst().getCoord().getX() - caractères.getLast().getCoord().getX()) / distance * fin,
-                            caractères.getFirst().getCoord().getX() + (caractères.getFirst().getCoord().getX() - caractères.getLast().getCoord().getX()) / distance * fin);
-            
-            Coord cd = new Coord(caractères.getLast().getCoord().getX() + (caractères.getLast().getCoord().getX() - caractères.getFirst().getCoord().getX()) / distance * début,
-                            caractères.getLast().getCoord().getY() + (caractères.getLast().getCoord().getY() - caractères.getFirst().getCoord().getY()) / distance * début);
-            
-            
-            Ligne tmp = new Ligne(' ', cd, cf);
-            
-            int i = 0;
-            for (int i = 0 ; i < début ; ++i)
-                    tmp.caractères.get(i).modifier(ligne.caractères.getFirst().getCaractère());
-            
-            
-            for (; i < fin ; ++i)
-                    tmp.caractères.get(i).modifier(ligne.caractères.getFirst().getCaractère());
-            
+    public void allonger(int début, int fin) {
+    		
+    	int x1 = caractères.getFirst().getCoord().getX() - début;
+    	int x2 = caractères.getLast().getCoord().getX() + fin;
+    	double a = coeffDir(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
+    	double b = ordAOrigine(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
+    	
+    	int y1 = (int) Math.round((double)x1*a + b);
+    	int y2 = (int) Math.round((double)x2*a + b);
+    	
+    	Ligne tmp = new Ligne(caractères.getFirst().getCaractère(), new Coord(x1,y1), new Coord(x2,y2));
+    	
+    	System.out.println(new Coord(x1,y1).toString() + new Coord (x2,y2).toString());
+    	
+    	System.out.println(size());
+        System.out.println(tmp.size());
+    	
+    	
+    	int i;
+        for (i = 0 ; i <  tmp.size() ; ++i)
+                if(caractères.getFirst().getCoord().equals(tmp.get(i).getCoord()))
+                	break;
         
-            
+        for (; i >= 0 ; --i) {
+        	int j =0;
+        	
+        	caractères.addFirst(tmp.get(i));
+        	
+        	j++;
+        	if(j>=début)
+        		break;
+        }
+        
+        
+        for (i = 0 ; i <  tmp.size() ; ++i)
+            if(caractères.getLast().getCoord().equals(tmp.get(i).getCoord()))
+            	break;
+        
+        
+        for (; i < tmp.size() ; ++i) {
+        	int j =0;
+        	tmp.get(i).modifier(caractères.getLast().getCaractère());
+        	caractères.addLast(tmp.get(i));
+        	
+        	j++;
+        	if(j>=fin)
+        		break;
+        }
+    	
     }
-    
+     
     private void diminuer(int début, int fin) {
                 assert(début + fin > size());
                 for (int i = 0 ; i < début ; ++i)
