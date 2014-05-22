@@ -1,6 +1,8 @@
 package Eléments;
 
 import Coordonnées.Coord;
+import Film.Caractère;
+
 import java.util.Objects;
 
 

@@ -2,8 +2,10 @@ package Eléments;
 
 import java.util.ArrayList;
 
+import Film.Caractère;
 import Film.Image;
 import Coordonnées.Coord;
+
 import java.util.Objects;
 
 /**
