@@ -49,9 +49,11 @@ public class CadreTest {
         char c = 'c';
         Coord coord1 = new Coord(1,1);
         Coord coord2 = new Coord(3,3);
-        Cadre instance = new Cadre(c, new Caractère('x', new Coord(2, 2)));
-        Cadre expResultat = new Cadre.cadre(c, coord1, coord2);
+        Cadre instance = new Cadre('a', new Caractère('x', new Coord(10, 10)));
+        instance.cadre(c, coord1, coord2);
+        Cadre expResult = new Cadre(c, new Caractère('x', new Coord(2,2)));
         Cadre result = instance.clone();
+        assertEquals(expResult, result);
     }
 
     /**

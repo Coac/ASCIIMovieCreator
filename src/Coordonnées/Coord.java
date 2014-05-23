@@ -2,15 +2,12 @@ package Coordonnées;
 
 /**
  * Coord est la classe permettant la gestion de coordonnées 2D positives. Elle 
- * permet de simplifier l'utilisation des données renseignant la position d'un
- * élément dans le plan en utlisant des couples de coordonnées (x,y) tout en
- * proposant une fonction de conversion permettant de retourner un couple au 
- * type désiré pour le stockage prévu dans l'interface IConvCoord.
+ * permet de renseignerla position d'un élément dans le plan en utlisant 
+ * des couples de coordonnées (x,y).
  * 
  * @author  Le Victor
  * @author  Luttgens Pascal
  * @version 1.0
- * @see     IConvCoord
  * @since   1.0
  */
 public class Coord {

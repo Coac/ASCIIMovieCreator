@@ -290,10 +290,16 @@ public class Ligne extends Elément {
         
     }
     
-
+    /**
+     * Allonge une ligne à ses deux extrémités, la fonction ne fonctionne que
+     * pour les lignes obliques à 45°, verticales et horizontales
+     * 
+     * @param début
+     * @param fin
+     */
     public void allonger(int début, int fin) {
     	double coeff = coeffDir(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
-        if (coeff == 0 || coeff == 1)
+        if (coeff != 0 && coeff != 1 && coeff != -1 && caractères.getFirst().getCoord().getY() != caractères.getLast().getCoord().getY() )
             throw new UnsupportedOperationException("Allonger ne fonctionne que pour les lignes oblique à 45 degrés, verticales et horizontales");
         
     	int x1,y1,x2,y2;
@@ -348,7 +354,7 @@ public class Ligne extends Elément {
             if(caractères.getLast().getCoord().equals(tmp.get(i).getCoord()))
             	break;
         
-        
+        ++i;
         for (; i < tmp.size() ; ++i) {
         	int j =0;
         	tmp.get(i).modifier(caractères.getLast().getCaractère());

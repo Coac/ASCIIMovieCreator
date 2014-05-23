@@ -195,19 +195,6 @@ public class CoordTest {
     }
 
     /**
-     * Test of échange method, of class Coord.
-     */
-    @Test
-    public void testÉchange() {
-        System.out.println("échange");
-        Coord c1 = new Coord(2,2);
-        Coord c2 = new Coord(5,5);
-        Coord.échange(c1, c2);
-        assertEquals(c1, new Coord(5,5));
-        assertEquals(c2, new Coord(2,2));
-    }
-
-    /**
      * Test of toString method, of class Coord.
      */
     @Test
