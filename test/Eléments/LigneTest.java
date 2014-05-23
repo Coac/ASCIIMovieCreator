@@ -7,6 +7,7 @@
 package Eléments;
 
 import Coordonnées.Coord;
+import Film.Caractère;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,10 +15,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
- *
- * @author scalpa
- */
+ * Tests unitaires de la classe Ligne.
+ * 
+ * @author  Le Victor
+ * @author  Luttgens Pascal
+ * @see     Ligne
+ * @version 1.0
+ * @since   1.0
+ **/
 public class LigneTest {
     
     public LigneTest() {
@@ -52,19 +59,6 @@ public class LigneTest {
         assertEquals(expResult, result);
     }
 
-    /**
-     * Test of redimensionner method, of class Ligne.
-     */
-    @Test
-    public void testRedimensionner() {
-        System.out.println("redimensionner");
-        int début = 0;
-        int fin = 0;
-        Ligne instance = null;
-        instance.redimensionner(début, fin);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of get method, of class Ligne.
@@ -102,5 +96,34 @@ public class LigneTest {
         Ligne result = instance.clone();
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test de la méthode modifier de la classe Elément
+     */
+    @Test
+    public void testModifier() {
+        System.out.println("Modifier");
+        Ligne instance = new Ligne(' ', new Coord(1,1), new Coord(4,1));
+        instance.modifier('x');
+        Ligne expResult = new Ligne('x', new Coord(1,1), new Coord(4,1));
+        Ligne result = instance.clone();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of allonger method, of class Ligne.
+     */
+    @Test
+    public void testAllonger() {
+        System.out.println("allonger");
+        int début = 5;
+        int fin = 2;
+        Ligne instance = new Ligne('x', new Coord(5, 5), new Coord(10,5));
+        instance.allonger(début, fin);
+        Ligne expResult = new Ligne('x', new Coord(0, 5), new Coord(12,5));
+        Ligne result = instance.clone();
+        assertEquals(expResult, result);
+    }
+    
     
 }

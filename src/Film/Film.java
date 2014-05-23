@@ -4,13 +4,12 @@ import java.util.LinkedList;
 
 
 /**
- * Le Film est un ensemble d'images. Il peut
- * être affiché à l'aide de la classe ES.
+ * Le Film est un ensemble d'images.
  * 
  * @author  Le Victor
  * @author  Luttgens Pascal
- * @version 1.0
  * @see     Image
+ * @version 1.0
  * @since   1.0
  **/
 public class Film {

@@ -123,7 +123,8 @@ public class Caractère extends Elément {
     * à celle passée en paramètre 
     *
     * @param caractères		la liste de caractères
-    * @param coord			la coordonnée
+    * @param coord		la coordonnée
+    * @return                   le caractère
     * @throws Exception 
     * @since   1.0
     */

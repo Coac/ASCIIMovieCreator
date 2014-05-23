@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Eléments;
 
 import Coordonnées.Coord;
+import Film.Caractère;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,10 +9,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
- *
- * @author scalpa
- */
+ * Tests unitaires de la classe Cadre.
+ * 
+ * @author  Le Victor
+ * @author  Luttgens Pascal
+ * @see     Cadre
+ * @version 1.0
+ * @since   1.0
+ **/
 public class CadreTest {
     
     public CadreTest() {
@@ -45,13 +46,12 @@ public class CadreTest {
     @Test
     public void testCadre() {
         System.out.println("cadre");
-        char c = ' ';
+        char c = 'c';
         Coord coord1 = new Coord(1,1);
         Coord coord2 = new Coord(3,3);
-        Cadre instance = null;
-        instance.cadre(c, coord1, coord2);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Cadre instance = new Cadre(c, new Caractère('x', new Coord(2, 2)));
+        Cadre expResultat = new Cadre.cadre(c, coord1, coord2);
+        Cadre result = instance.clone();
     }
 
     /**
@@ -86,6 +86,19 @@ public class CadreTest {
     public void testClone() {
         System.out.println("clone");
         Cadre instance = new Cadre('x', new Caractère('c', new Coord(2, 2)));
+        Cadre expResult = new Cadre('x', new Caractère('c', new Coord(2, 2)));
+        Cadre result = instance.clone();
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test de la méthode modifier de l'interface IElément
+     */
+    @Test
+    public void testModifier() {
+        System.out.println("Modifier");
+        Cadre instance = new Cadre(' ', new Caractère('c', new Coord(2, 2)));
+        instance.modifier('x');
         Cadre expResult = new Cadre('x', new Caractère('c', new Coord(2, 2)));
         Cadre result = instance.clone();
         assertEquals(expResult, result);

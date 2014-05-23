@@ -16,7 +16,6 @@ import java.util.Objects;
  * @author  Luttgens Pascal
  * @version 1.0
  * @see     Elément
- * @see     IComplexe
  * @see     Coord
  * @since   1.0
  **/

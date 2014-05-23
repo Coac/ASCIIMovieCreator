@@ -1,17 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Film;
 
 import Coordonnées.Coord;
 
 /**
- *
- * @author scalpa
- */
+ * Le Film est un ensemble d'images.
+ * 
+ * @author  Le Victor
+ * @author  Luttgens Pascal
+ * @see     Image
+ * @version 1.0
+ * @since   1.0
+ **/
 public interface IElément {
     
     /**
@@ -62,7 +61,12 @@ public interface IElément {
      */
     void déplacer(Coord coord);
     
-    
+    /**
+     * Renvoie une copie profonde d'un élément
+     * 
+     * @return  la copie de l'élément
+     * @since   1.0
+     */
 	IElément clone();
 
 }

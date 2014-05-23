@@ -4,9 +4,9 @@ import Coordonnées.Coord;
 import Film.IElément;
 
 /**
- * La classe élément est le supertype à la base de tous les éléments utilisables
- * de l'application.
- * Elle contient donc les attributs et méthodes communes à TOUS les éléments.
+ * La classe élément est le supertype à la base de tous les éléments fournis
+ * dans la version 1.0.
+ * Elle implémente IElément
  * Chaque Elément contient des Caractères
  * 
  * @author  Le Victor

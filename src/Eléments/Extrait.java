@@ -47,7 +47,11 @@ public class Extrait extends Elément {
 		this.fin = extrait.fin;
         }
 	
-	
+	@Override
+        public void modifier(char c) {
+            texte.modifier(c);
+        }
+        
 	@Override
 	public Caractère get(int i) {
 		int j = -1;

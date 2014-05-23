@@ -1,25 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Eléments;
 
 import Coordonnées.Coord;
+import Film.Caractère;
 import java.util.AbstractList;
 import java.util.LinkedList;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 
 /**
- *
- * @author scalpa
- */
+ * Tests unitaires de la classe Caractère.
+ * 
+ * @author  Le Victor
+ * @author  Luttgens Pascal
+ * @see     Caractère
+ * @version 1.0
+ * @since   1.0
+ **/
 public class CaractèreTest {
     
     public CaractèreTest() {

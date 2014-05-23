@@ -204,26 +204,6 @@ public class Coord {
 		return x >= début.getX() && x <= fin.getX() && y >= début.getY() && y <= fin.getY();
 	}
 	
-	
-    /**
-     * Echange les valeurs des deux Coord
-     * c1 aura la valeur de c2
-     * c2 aura la valeur de c1
-     * 
-     * @param c1    	La Coord c1
-     * @param c2     	La Coord c2
-     * @return 		    true si oui, sinon false
-     * @since           1.0
-     */
-	static public void échange(Coord c1, Coord c2) {
-		Coord temp = new Coord(c1);
-		c1 = c2;
-		c2 = temp;
-	}
-	
-	
-	
-	
 	/**
      * Retourne une chaine de caractère qui 
      * correspond au Coord

@@ -275,7 +275,12 @@ public class Ligne extends Elément {
             }
     }
         
-
+    /**
+     * Permet de vérifier si une ligne occupe une certaine coordonnée 
+     * 
+     * @param coord les coordonnées
+     * @return      true si coord est occupée par un Caractère de Ligne
+     */
     public boolean estCoordDeLigne(Coord coord){
 		for (Caractère caractère : caractères) {
 			if(caractère.getCoord().equals(coord))
@@ -286,33 +291,48 @@ public class Ligne extends Elément {
     }
     
 
-    public void redimensionner(int début, int fin) {
-           
-    }
-    
     public void allonger(int début, int fin) {
+    	double coeff = coeffDir(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
+        if (coeff == 0 || coeff == 1)
+            throw new UnsupportedOperationException("Allonger ne fonctionne que pour les lignes oblique à 45 degrés, verticales et horizontales");
+        
+    	int x1,y1,x2,y2;
+    	if(caractères.getFirst().getCoord().getX() == caractères.getLast().getCoord().getX())
+    	{
     		
-    	int x1 = caractères.getFirst().getCoord().getX() - début;
-    	int x2 = caractères.getLast().getCoord().getX() + fin;
-    	double a = coeffDir(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
-    	double b = ordAOrigine(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
-    	
-    	int y1 = (int) Math.round((double)x1*a + b);
-    	int y2 = (int) Math.round((double)x2*a + b);
+    		if(caractères.getFirst().getCoord().getY() < caractères.getLast().getCoord().getX()) {
+    			y1 = caractères.getFirst().getCoord().getY() - début;
+    			y2 = caractères.getLast().getCoord().getY() + fin;
+    			
+    		}
+    		else {
+    			y1 = caractères.getLast().getCoord().getY() - début;
+    			y2 = caractères.getFirst().getCoord().getY() + fin;
+    		}
+    		x1 = caractères.getFirst().getCoord().getX();
+			x2 = x1;	
+    		
+			
+    	}
+    	else {
+	    	x1 = caractères.getFirst().getCoord().getX() - début;
+	    	x2 = caractères.getLast().getCoord().getX() + fin;
+	    	double a = coeffDir(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
+	    	double b = ordAOrigine(caractères.getFirst().getCoord(), caractères.getLast().getCoord());
+	    	
+	    	y1 = (int) Math.round((double)x1*a + b);
+	    	y2 = (int) Math.round((double)x2*a + b);
+    	}
     	
     	Ligne tmp = new Ligne(caractères.getFirst().getCaractère(), new Coord(x1,y1), new Coord(x2,y2));
-    	
-    	System.out.println(new Coord(x1,y1).toString() + new Coord (x2,y2).toString());
-    	
-    	System.out.println(size());
-        System.out.println(tmp.size());
-    	
+    	System.out.println(new Coord(x1,y1).toString() + new Coord(x2,y2));
     	
     	int i;
         for (i = 0 ; i <  tmp.size() ; ++i)
                 if(caractères.getFirst().getCoord().equals(tmp.get(i).getCoord()))
                 	break;
         
+        --i;
         for (; i >= 0 ; --i) {
         	int j =0;
         	
@@ -341,7 +361,13 @@ public class Ligne extends Elément {
     	
     }
      
-    private void diminuer(int début, int fin) {
+    /**
+     * Raccourcit une ligne 
+     * 
+     * @param début Nombre de caractère à supprimer au début
+     * @param fin   Nombre de caractère à supprimer à la fin
+     */
+    public void diminuer(int début, int fin) {
                 assert(début + fin > size());
                 for (int i = 0 ; i < début ; ++i)
                     caractères.removeFirst();
@@ -349,8 +375,6 @@ public class Ligne extends Elément {
                     caractères.removeLast();
     }
 
-    // ------------------------------------------------------------------------------------
-	
 	/**
      * Retourne le coefficient directeur de la droite
      * créée par 2 points de coordonées c1 et c2.

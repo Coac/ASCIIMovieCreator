@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Eléments;
 
 import Coordonnées.Coord;
+import Film.Caractère;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -14,10 +9,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
- *
- * @author scalpa
- */
+ * Tests unitaires de la classe Texte.
+ * 
+ * @author  Le Victor
+ * @author  Luttgens Pascal
+ * @see     Texte
+ * @version 1.0
+ * @since   1.0
+ **/
 public class TexteTest {
     
     public TexteTest() {
@@ -48,8 +49,9 @@ public class TexteTest {
         char c = 'z';
         Texte instance = new Texte("abcdefghijkl",4);
         instance.modifier(c);
-        for (int i = 0 ; i < 12 ; ++i)
-                assertEquals(c, instance.get(i).getCaractère());
+        Texte expResultat = new Texte("zzzzzzzzzzzz", 4);
+        Texte resultat = instance.clone();
+        assertEquals(expResultat, resultat);
     }
 
     /**
@@ -91,4 +93,5 @@ public class TexteTest {
         assertEquals(expResult, result);
     }
     
+
 }

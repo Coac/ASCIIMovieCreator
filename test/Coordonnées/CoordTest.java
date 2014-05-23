@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Coordonnées;
 
 import org.junit.After;
@@ -13,10 +7,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+
 /**
- *
- * @author scalpa
- */
+ * Tests unitaires de la classe Coord.
+ * 
+ * @author  Le Victor
+ * @author  Luttgens Pascal
+ * @see     Coord
+ * @version 1.0
+ * @since   1.0
+ **/
 public class CoordTest {
     
     public CoordTest() {
@@ -87,20 +87,18 @@ public class CoordTest {
     }
 
 
-    /**
+/**
      * Test of rotationReturn method, of class Coord.
      */
     @Test
     public void testRotationReturn() {
         System.out.println("rotationReturn");
-        double angle = 0.0;
-        Coord centre = null;
-        Coord instance = null;
-        Coord expResult = null;
+        double angle = Math.PI;
+        Coord centre = new Coord(2,2);
+        Coord instance = new Coord(1,2);
+        Coord expResult = new Coord(3,2);
         Coord result = instance.rotationReturn(angle, centre);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -109,16 +107,14 @@ public class CoordTest {
     @Test
     public void testRotationReturnD() {
         System.out.println("rotationReturnD");
-        double angle = 0.0;
-        Coord centre = null;
-        Coord instance = null;
-        Coord expResult = null;
+        double angle = 180.0;
+        Coord centre = new Coord(2,2);
+        Coord instance = new Coord(1,2);
+        Coord expResult = new Coord(3,2);
         Coord result = instance.rotationReturnD(angle, centre);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
+    
     /**
      * Test of moins method, of class Coord.
      */

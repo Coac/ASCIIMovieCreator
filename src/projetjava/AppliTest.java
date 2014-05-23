@@ -6,7 +6,7 @@ import ES.ES;
 import Film.Film;
 import Film.Image;
 import Eléments.Cadre;
-import Eléments.Caractère;
+import Film.Caractère;
 import Eléments.Extrait;
 import Eléments.Ligne;
 import Eléments.Texte;
@@ -34,7 +34,7 @@ public class AppliTest {
                 image.add(ligne);
                 Image image2 = image.clone();
                 extrait.déplacer(new Coord(20,20));
-		ligne.redimensionner(0, 5);
+
                 //image.add(cadre);
 		//image.add(c);
 		film.add(image);
